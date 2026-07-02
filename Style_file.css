@@ -10,6 +10,8 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    z-index: 1;
 }
 .logo{
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -41,4 +43,100 @@ body{
 }
 .navlinks i:hover{
     color: #007bff;
+}
+
+.spacer{
+    height: 12vh;
+}
+
+.slider-container{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.slider-images{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-images img{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    background-color: #f2f2f2;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideFade 8s infinite;
+    animation-fill-mode: both;
+}
+
+/* Animation for sliding and fading images */
+@keyframes slideFade {
+    0%, 100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    5%, 45% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+.slider-images img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.slider-images img:nth-child(2) {
+    animation-delay: 2s;
+}
+.slider-images img:nth-child(3) {
+    animation-delay: 4s;
+}
+.slider-images img:nth-child(4) {
+    animation-delay: 6s;
+}
+
+.sample-text{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    z-index: 10;
+}
+
+.sample-text .btw-1 {
+    background-color: #001aff; 
+    color: rgb(255, 255, 255); 
+    border: none;
+    border-radius: 50px;
+    margin-top: 20px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.12s ease, box-shadow 0.2s ease;
+}
+
+.sample-text .btw-1:hover {
+    background-color: red;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    
+}
+
+.sample-text .btw-1:active{
+    transform: translateY(0);
+}
+
+.sample-text .btw-1:focus{
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.18);
 }
